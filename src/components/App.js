@@ -1,7 +1,17 @@
 import React from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "../routes/Home";
+import Detail from "../routes/Detail";
 
 const App = () => {
-  return <div>App</div>;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Detail" element={<Detail />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;

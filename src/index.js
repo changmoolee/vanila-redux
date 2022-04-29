@@ -1,34 +1,13 @@
-import { createStore } from "redux";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import App from "./components/App";
+import store from "./store";
 
-const add = document.getElementById("add");
-const minus = document.getElementById("minus");
-const number = document.querySelector("span");
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const reducer = (count = 0, action) => {
-  if (action.type === "add") {
-    count++;
-  } else if (action.type === "minus") {
-    count--;
-  }
-  return count;
-};
-
-const store = createStore(reducer);
-
-console.log(store.getState());
-
-const onChange = () => {
-  number.innerText = store.getState();
-};
-
-store.subscribe(onChange);
-
-const handleAdd = () => {
-  store.dispatch({ type: "add" });
-};
-const handleMinus = () => {
-  store.dispatch({ type: "minus" });
-};
-
-add.addEventListener("click", handleAdd);
-minus.addEventListener("click", handleMinus);
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
