@@ -6,7 +6,7 @@ const Del = ({ dispatch, ownProps }) => {
     dispatch(deleteToDo(ownProps.id));
   };
 
-  return <div onClick={onClick}>Del</div>;
+  return <button onClick={onClick}>Del</button>;
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
